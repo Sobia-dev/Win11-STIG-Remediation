@@ -3,7 +3,8 @@
     Remediates DISA STIG WN11-AU-000500 on Windows 11.
 
 .DESCRIPTION
-    WN11-AU-000500: The Application event log size must be configured to 32768 KB or greater.
+    WN11-AU-000500: The Application event log size must be configured to 32768 KB or greater. Why it matters: Windows sets a small default size for the Application log.
+    Once the log fills up, the oldest events get overwritten, and during an investigation that can mean the evidence you need is already gone. A bigger log keeps more history.
 
     This script:
       1. Confirms it is running as Administrator
