@@ -4,16 +4,16 @@
     (AutoPlay / AutoRun) on Windows 11.
 
 .DESCRIPTION
-    WN11-CC-000180: AutoPlay must be turned off for non-volume devices.
+    ## WN11-CC-000180: AutoPlay must be turned off for non-volume devices.
       HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer
       NoAutoplayfornonVolume (REG_DWORD) = 1
 
-    WN11-CC-000185: The default AutoRun behavior must be configured to
+    ## WN11-CC-000185: The default AutoRun behavior must be configured to
     prevent AutoRun commands.
       HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
       NoAutorun (REG_DWORD) = 1
 
-    WN11-CC-000190: AutoPlay must be disabled for all drives.
+   ## WN11-CC-000190: AutoPlay must be disabled for all drives.
       HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
       NoDriveTypeAutoRun (REG_DWORD) = 255 (0xFF)
 
