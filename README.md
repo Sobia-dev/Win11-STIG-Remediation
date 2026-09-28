@@ -5,7 +5,9 @@ STIG stands for Security Technical Implementation Guide. They're hardening check
 Every rule gets a severity category:
 
 CAT I is high risk and can lead directly to compromise, like a default admin password.
+
 CAT II is medium risk, and most rules fall here.
+
 CAT III is low risk, more like good hygiene.
 
 STIGs are required on DoD systems and private companies also use them as a strict baseline.
