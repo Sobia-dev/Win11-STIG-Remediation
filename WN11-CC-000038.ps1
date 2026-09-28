@@ -1,4 +1,4 @@
-<#
+<##
 .SYNOPSIS
     Remediates DISA STIG WN11-CC-000038 on Windows 11.
 
