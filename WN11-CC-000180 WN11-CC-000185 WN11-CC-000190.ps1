@@ -1,25 +1,28 @@
 <#
 .SYNOPSIS
-    Remediates DISA STIG WN11-CC-000180, WN11-CC-000185 and WN11-CC-000190
-    (AutoPlay / AutoRun) on Windows 11.
+    Remediates DISA STIG WN11-CC-000180, WN11-CC-000185 and WN11-CC-000190 (AutoPlay / AutoRun) on Windows 11.
 
 .DESCRIPTION
-    WN11-CC-000180: AutoPlay must be turned off for non-volume devices.
+    WN11-CC-000180: AutoPlay must be turned off for non-volume devices. 
+    Non-volume devices are things that don't show up as a drive letter, like phones, cameras, and MP3 players. 
+    With this set to 1, Windows won't pop up or act automatically when you plug one in. Without it, a malicious phone or gadget could trigger an action on connect.
       HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer
       NoAutoplayfornonVolume (REG_DWORD) = 1
 
-    WN11-CC-000185: The default AutoRun behavior must be configured to
-    prevent AutoRun commands.
+    WN11-CC-000185: The default AutoRun behavior must be configured to prevent AutoRun commands.
+    Old USB drives and CDs could hold a file called autorun.inf that told Windows which program to launch automatically. 
+    With this set to 1, Windows ignores those instructions. Worms like Conficker spread this way.
       HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
       NoAutorun (REG_DWORD) = 1
 
    WN11-CC-000190: AutoPlay must be disabled for all drives.
+   0xff is 255 in hex. It's a bitmask, meaning each bit stands for a drive type: USB, hard drive, CD, network drive, and so on. 
+   0xff sets every bit, so AutoPlay is off for every drive type.
       HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
       NoDriveTypeAutoRun (REG_DWORD) = 255 (0xFF)
 
-    Why: AutoPlay/AutoRun can launch code automatically when a USB drive,
-    CD or phone is plugged in - a classic malware spread method
-    (MITRE ATT&CK T1091 - Replication Through Removable Media).
+    Why: AutoPlay/AutoRun can launch code automatically when a USB drive, CD or phone is plugged in.
+    Together these STIGs block malware from spreading through plugged-in media (MITRE ATT&CK T1091 – Replication Through Removable Media).
 
 .NOTES
     Severity    : CAT I (000185, 000190) / CAT II (000180) - confirm in your scan
