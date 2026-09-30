@@ -16,5 +16,10 @@ STIGs that I have implemented in this project (in-progress):
 2. WN11-AU-000505
 3. WN11-CC-000038
 4. WN11-CC-000315
+5. WN11-CC-000180
+6. WN11-CC-000185
+7. WN11-CC-000190
+8. WN11-CC-000326
+9. WN11-CC-000327
    
 
